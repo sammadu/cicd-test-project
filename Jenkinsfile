@@ -12,12 +12,9 @@ pipeline
                 cleanWs()
             }
         }
-    }
-
-    stages{
         stage("Checkout from SCM"){
             steps{
-                git branch: 'main', credentialsId: 'github', url: 'https://github.com/sammadu/cicd-test-project.git'
+                git branch: 'master', credentialsId: 'jenkins-fine-grained-key', url: 'https://github.com/sammadu/cicd-test-project.git'
             }
         }
     }
