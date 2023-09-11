@@ -17,5 +17,17 @@ pipeline{
                 git branch: 'master', credentialsId: 'jenkins-fine-grained-key', url: 'https://github.com/sammadu/cicd-test-project.git'
             }
         }
+
+        stage("Build Application"){
+            steps{
+                sh "mvn clean package"
+            }
+        }
+
+        stage("Test Application"){
+            steps{
+                sh "mvn test"
+            }
+        }
     }
 }
